@@ -24,12 +24,12 @@ jobs:
       - name: Create artifact directory
         run: mkdir ~/artifact
       
-      - name: Change build configuration to windows
-        run: |
-          env GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CXX=x86_64-w64-mingw32-g++ CC=x86_64-w64-mingw32-gcc
+      - name: Install MinGW-w64
+        run: sudo apt update && sudo apt install -y mingw-w64
 
-      - name: Build
-        run: go build -o artifact
+      - name: Compile for Windows x64
+        run: |
+          x86_64-w64-mingw32-gcc -o my_program.exe main.c
 
       - name: Show build
         run: ls -l ~/artifact
