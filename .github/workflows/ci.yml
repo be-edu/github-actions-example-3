@@ -14,9 +14,6 @@ jobs:
 
       - name: Show go version
         run: go version
-       
-      - name: Install windows compiler
-        run: sudo apt-get install gcc-mingw-w64
 
       - name: Print working directory
         run: pwd
@@ -27,9 +24,13 @@ jobs:
       - name: Install MinGW-w64
         run: sudo apt update && sudo apt install -y mingw-w64
 
+      #- name: Compile for Windows x64
+      #  run: |
+      #    env GOOS=windows GOARCH=amd64 go build -o artifact
+          
       - name: Compile for Windows x64
         run: |
-          env GOOS=windows GOARCH=amd64 go build -o artifact
+          build -o artifact
 
       - name: Show build
         run: ls -l ~/artifact
