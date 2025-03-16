@@ -26,11 +26,7 @@ jobs:
       
       - name: Change build configuration to windows
         run: |
-          set GOOS=windows
-          set GOARCH=amd64
-          set CGO_ENABLED=1
-          set CXX=x86_64-w64-mingw32-g++
-          set CC=x86_64-w64-mingw32-gcc
+          env GOOS=windows GOARCH=amd64 CGO_ENABLED=1 CXX=x86_64-w64-mingw32-g++ CC=x86_64-w64-mingw32-gcc
 
       - name: Build
         run: go build -o artifact
