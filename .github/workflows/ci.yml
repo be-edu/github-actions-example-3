@@ -23,6 +23,9 @@ jobs:
 
       - name: Build
         run: go build -o artifact
+        env: 
+          GOOS: windows
+          GOARCH: amd64
 
       - name: Show build
         run: ls -l ~/artifact
