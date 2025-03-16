@@ -29,7 +29,7 @@ jobs:
 
       - name: Compile for Windows x64
         run: |
-          env GOOS=windows GOARCH=amd64 go build .
+          env GOOS=windows GOARCH=amd64 go build -o artifact
 
       - name: Show build
         run: ls -l ~/artifact
