@@ -20,19 +20,19 @@ jobs:
 
       - name: Build for windows
         run: go build -o artifacts/guess_app_windows_amd64.exe
-        env: 
+        env:
           GOOS: windows
           GOARCH: amd64
 
       - name: Build for linux
         run: go build -o artifacts/guess_app_linux_amd64
-        env: 
+        env:
           GOOS: linux
           GOARCH: amd64
       
       - name: Build for darwin (macOS)
         run: go build -o artifacts/guess_app_darwin_arm64
-        env: 
+        env:
           GOOS: darwin
           GOARCH: arm64
       
