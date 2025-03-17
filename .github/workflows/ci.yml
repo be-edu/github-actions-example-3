@@ -18,29 +18,29 @@ jobs:
       - name: Print working directory
         run: pwd
 
-      - name: Build windows
-        run: go build -o artifact/guess_app_windows_amd64.exe
+      - name: Build for windows
+        run: go build -o artifacts/guess_app_windows_amd64.exe
         env: 
           GOOS: windows
           GOARCH: amd64
 
-      - name: Build linux
-        run: go build -o artifact/guess_app_linux_amd64
+      - name: Build for linux
+        run: go build -o artifacts/guess_app_linux_amd64
         env: 
           GOOS: linux
           GOARCH: amd64
       
-      - name: Build macOS
-        run: go build -o artifact/guess_app_darwin_arm64
+      - name: Build for darwin (macOS)
+        run: go build -o artifacts/guess_app_darwin_arm64
         env: 
           GOOS: darwin
           GOARCH: arm64
       
-      - name: Show build
+      - name: Show artifacts
         run: ls -l ./artifact
 
-      - name: Upload artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: guess_app_artifacts
-          path: artifact
+          path: artifacts
