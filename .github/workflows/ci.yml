@@ -37,7 +37,7 @@ jobs:
           GOARCH: arm64
       
       - name: Show artifacts
-        run: ls -l ./artifacts
+        run: ls -l artifacts
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
