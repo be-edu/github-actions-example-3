@@ -21,12 +21,24 @@ jobs:
       - name: Create artifact directory
         run: mkdir ~/artifact
 
-      - name: Build
-        run: go build -o artifact/guess-app.exe
+      - name: Build windows
+        run: go build -o artifact/guess-app-windows.exe
         env: 
           GOOS: windows
           GOARCH: amd64
 
+      - name: Build linux
+        run: go build -o artifact/guess-app-windows.exe
+        env: 
+          GOOS: linux
+          GOARCH: amd64
+      
+      - name: Build macOS
+        run: go build -o artifact/guess-app-macos.exe
+        env: 
+          GOOS: darwin
+          GOARCH: arm64
+      
       - name: Show build
         run: ls -l ~/artifact
 
