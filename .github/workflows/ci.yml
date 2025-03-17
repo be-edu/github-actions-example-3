@@ -22,19 +22,19 @@ jobs:
         run: mkdir ~/artifact
 
       - name: Build windows
-        run: go build -o artifact/guess-app-windows.exe
+        run: go build -o artifact/guess_app_windows_amd64.exe
         env: 
           GOOS: windows
           GOARCH: amd64
 
       - name: Build linux
-        run: go build -o artifact/guess-app-linux.exe
+        run: go build -o artifact/guess_app_linux_amd64
         env: 
           GOOS: linux
           GOARCH: amd64
       
       - name: Build macOS
-        run: go build -o artifact/guess-app-macos.exe
+        run: go build -o artifact/guess_app_darwin_arm64
         env: 
           GOOS: darwin
           GOARCH: arm64
@@ -45,5 +45,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: my-artifact
+          name: guess-app-artifacts
           path: artifact
